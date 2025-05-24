@@ -1,0 +1,28 @@
+﻿﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("_DefaultHeadComponentPartial")
+<body class="animsition">
+
+    @await Component.InvokeAsync("_DefaultSliderComponentPartial")
+
+    @await Component.InvokeAsync("_DefaultCategoryComponentPartial")
+
+    @await Component.InvokeAsync("_DefaultProductComponentPartial")
+
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="zmdi zmdi-chevron-up"></i>
+        </span>
+    </div>
+
+
+    @await Component.InvokeAsync("_DefaultScriptComponentPartial")
+
+</body>
+</html>

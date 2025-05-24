@@ -1,0 +1,51 @@
+﻿@model ShoppingMongo.Dtos.ProductDto.GetProductByIdDto
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-white rounded-lg shadow p-6 max-w-xl mx-auto">
+    <h2 class="text-xl font-bold mb-4 text-gray-800">Ürün Güncelleme Sayfası</h2>
+    <form method="post">
+        <input type="hidden" asp-for="ProductId" />
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">ID</label>
+            <input type="text" asp-for="ProductId" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" readonly>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">Ürün Adı</label>
+            <input type="text" asp-for="ProductName" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Yeni Kategori Adı Giriniz">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">Fiyat</label>
+            <input type="text" asp-for="ProductPrice" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Yeni Kategori Adı Giriniz">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">Açıklama</label>
+            <input type="text" asp-for="ProductDescription" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Yeni Kategori Adı Giriniz">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">1. Görsel</label>
+            <input type="text" asp-for="ProductImageUrl1" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Yeni Kategori Adı Giriniz">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">2. Görsel</label>
+            <input type="text" asp-for="ProductImageUrl2" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Yeni Kategori Adı Giriniz">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">3. Görsel</label>
+            <input type="text" asp-for="ProductImageUrl3" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Yeni Kategori Adı Giriniz">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">Stok Sayısı</label>
+            <input type="text" asp-for="StockCount" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Yeni Kategori Adı Giriniz">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">Kategori</label>
+            <input type="text" asp-for="CategoryId" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Yeni Kategori Adı Giriniz">
+        </div>
+        <div class="flex justify-end">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold">Kaydet</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,19 @@
+﻿@model ShoppingMongo.Dtos.CategoryDto.CreateCategoryDto
+@{
+    ViewData["Title"] = "CreateCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-white rounded-lg shadow p-6 max-w-xl mx-auto">
+    <h2 class="text-xl font-bold mb-4 text-gray-800">Yeni Kategori Ekleme Sayfası</h2>
+    <form method="post">
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">Kategori Adı</label>
+            <input type="text" asp-for="CategoryName" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Yeni Kategori Girin">
+        </div>
+        <div class="flex justify-end">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold">Oluştur</button>
+        </div>
+    </form>
+</div>
+
