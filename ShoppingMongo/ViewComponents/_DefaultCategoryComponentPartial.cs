@@ -12,7 +12,7 @@ namespace ShoppingMongo.ViewComponents
             _categoryService = categoryService;
         }
 
-        public async Task<IViewComponentResult> Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
             var values = await _categoryService.GetAllCategoriesAsync();
             return View(values);

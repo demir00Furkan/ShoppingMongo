@@ -12,7 +12,7 @@ namespace ShoppingMongo.ViewComponents
             _sliderService = sliderService;
         }
 
-        public async Task<IViewComponentResult> Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
             var values = await _sliderService.GetAllSliderAsync();
             return View(values);

@@ -48,6 +48,7 @@ namespace ShoppingMongo.Serivces.ProductServices
         public async Task UpdateProductAsync(UpdateProductDto updateProductDto)
         {
             var values = _mapper.Map<Product>(updateProductDto);
+            
             await _productCollection.FindOneAndReplaceAsync(x => x.ProductId == updateProductDto.ProductId, values);
             
         }

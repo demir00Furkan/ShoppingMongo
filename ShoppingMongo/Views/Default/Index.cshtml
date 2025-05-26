@@ -7,11 +7,18 @@
 @await Component.InvokeAsync("_DefaultHeadComponentPartial")
 <body class="animsition">
 
+    @await Component.InvokeAsync("_DefaultHeaderComponentPartial")
+
     @await Component.InvokeAsync("_DefaultSliderComponentPartial")
 
     @await Component.InvokeAsync("_DefaultCategoryComponentPartial")
 
     @await Component.InvokeAsync("_DefaultProductComponentPartial")
+
+    @await Component.InvokeAsync("_DefaultPreviewProductComponentPartial")
+
+    @await Component.InvokeAsync("_DefaultFooterComponentPartial")
+
 
 
     <!-- Back to top -->
