@@ -19,6 +19,7 @@ namespace ShoppingMongo.Controllers
 
         public async Task<IActionResult> ProductList(string search)
         {
+
             var values = await _productService.GetAllProductAsync();
 
             if (!string.IsNullOrEmpty(search))
@@ -70,5 +71,6 @@ namespace ShoppingMongo.Controllers
             await _productService.UpdateProductAsync(updateProductDto);
             return RedirectToAction("ProductList");
         }
+        
     }
 }

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using ShoppingMongo.Dtos.ProductDto;
 using ShoppingMongo.Entities;
@@ -10,12 +12,14 @@ namespace ShoppingMongo.Serivces.ProductServices
     {
         private readonly IMapper _mapper;
         private readonly IMongoCollection<Product> _productCollection;
+        private readonly IMongoCollection<Category> _categoryCollection;
 
         public ProductService(IMapper mapper, IDatabaseSettings _databaseSettings)
         {
             var client = new MongoClient(_databaseSettings.ConnectionStrings);
             var database = client.GetDatabase(_databaseSettings.DatabaseName);
             _productCollection = database.GetCollection<Product>(_databaseSettings.ProductCollectionName);
+            _categoryCollection = database.GetCollection<Category>(_databaseSettings.CategoryCollectionName);
             _mapper = mapper;
         }
 
@@ -35,8 +39,16 @@ namespace ShoppingMongo.Serivces.ProductServices
 
         public async Task<List<ResultProductDto>> GetAllProductAsync()
         {
-            var values = await _productCollection.Find(x => true).ToListAsync();
-            return _mapper.Map<List<ResultProductDto>>(values); 
+            var products = await _productCollection.Find(x=> true).ToListAsync();   
+            var categories = await _categoryCollection.Find(x=> true).ToListAsync();
+            var result = products.Select(x =>
+            {
+                var dto = _mapper.Map<ResultProductDto>(x);
+                var category = categories.FirstOrDefault(c => c.CategoryId == x.CategoryId);
+                dto.CategoryName = category.CategoryName;
+                return dto;
+            }).ToList();
+            return result;
         }
 
         public async Task<GetProductByIdDto> GetProductByIdDtoAsync(string id)
@@ -52,5 +64,6 @@ namespace ShoppingMongo.Serivces.ProductServices
             await _productCollection.FindOneAndReplaceAsync(x => x.ProductId == updateProductDto.ProductId, values);
             
         }
+        
     }
 }

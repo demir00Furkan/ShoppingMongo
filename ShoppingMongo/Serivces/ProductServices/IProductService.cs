@@ -9,5 +9,6 @@ namespace ShoppingMongo.Serivces.ProductServices
         Task UpdateProductAsync(UpdateProductDto updateProductDto);
         Task DeleteProductAsync(string id);
         Task<GetProductByIdDto> GetProductByIdDtoAsync(string id);
+        
     }
 }

@@ -12,5 +12,6 @@
         public string ProductImageUrl3 { get; set; }
         public decimal StockCount { get; set; }
         public string CategoryId { get; set; }
+        public string CategoryName { get; set; }
     }
 }
